@@ -145,42 +145,6 @@ export function CoursePageClient({
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50">
       {/* Enhanced Header with Language Switcher */}
-      <header className="bg-white border-b shadow-lg backdrop-blur-sm bg-white/95 sticky top-0 z-40">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex justify-between items-center">
-            <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-gradient-to-r from-green-500 to-blue-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">10</span>
-              </div>
-              <h1 className="text-2xl font-bold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
-                10 Minute School
-              </h1>
-            </div>
-            <div className="flex gap-2">
-              <button
-                onClick={() => setLanguage('en')}
-                className={`px-4 py-2 text-sm rounded-full font-medium transition-all duration-200 ${
-                  language === 'en'
-                    ? 'bg-gradient-to-r from-green-500 to-blue-600 text-white shadow-lg transform scale-105'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200 hover:shadow-md'
-                }`}
-              >
-                English
-              </button>
-              <button
-                onClick={() => setLanguage('bn')}
-                className={`px-4 py-2 text-sm rounded-full font-medium transition-all duration-200 ${
-                  language === 'bn'
-                    ? 'bg-gradient-to-r from-green-500 to-blue-600 text-white shadow-lg transform scale-105'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200 hover:shadow-md'
-                }`}
-              >
-                বাংলা
-              </button>
-            </div>
-          </div>
-        </div>
-      </header>
 
       {/* Course Header - Optional as per wireframe */}
       {/* <CourseHeader

@@ -4,6 +4,8 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { Menu, X, Search, User, ShoppingCart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import Image from 'next/image';
+import logo from '../../../public/10mslogo-svg.svg';
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -14,12 +16,13 @@ export function Header() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-green-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">10</span>
-            </div>
-            <span className="text-xl font-bold text-green-600">
-              10 Minute School
-            </span>
+            <Image
+              src={logo}
+              alt="Chrono Click Logo"
+              width={50}
+              height={50}
+              className="relative z-10 rounded-full"
+            />
           </Link>
 
           {/* Desktop Navigation */}

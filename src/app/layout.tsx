@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
 import Providers from './provider';
+import { Header } from '@/components/layout/header';
+import Footer from '@/components/layout/footer';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -15,7 +17,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://10minuteschool.com'),
-  title: 'IELTS Course by Munzereen Shahid - 10 Minute School',
+  title: 'Complete IELTS Course by Munzereen Shahid - 10 Minute School',
   description:
     'Master IELTS with expert guidance from Munzereen Shahid. Comprehensive course covering all four skills: Reading, Writing, Listening, and Speaking.',
   keywords:
@@ -75,7 +77,11 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Providers>{children}</Providers>
+        <Providers>
+          <Header />
+          {children}
+          <Footer />
+        </Providers>
       </body>
     </html>
   );
