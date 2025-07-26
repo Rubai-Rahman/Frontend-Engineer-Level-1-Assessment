@@ -119,10 +119,10 @@ export function Header() {
                 <Image
                   src={logo}
                   alt="10 Minute School Logo"
-                  width={32}
-                  height={32}
+                  width={90}
+                  height={90}
+                  className="dark:invert"
                 />
-                <span className="font-semibold text-base">10MS</span>
               </div>
 
               <nav className="flex flex-col space-y-4">
