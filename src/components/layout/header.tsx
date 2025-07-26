@@ -44,6 +44,7 @@ export function Header() {
                 width={100}
                 height={100}
                 priority
+                className="dark:invert"
               />
             </Link>
             <div className="hidden md:flex items-center">
