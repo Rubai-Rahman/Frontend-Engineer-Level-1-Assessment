@@ -1,0 +1,13 @@
+{
+  "Header": {
+    "searchPlaceholder": "Search courses, skills...",
+    "login": "Log In",
+    "nav": {
+      "courses": "Courses",
+      "skills": "Skills",
+      "admission": "Admission",
+      "jobPreparation": "Job Preparation",
+      "liveClass": "Live Class"
+    }
+  }
+}

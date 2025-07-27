@@ -4,6 +4,7 @@ import { lazy, Suspense, useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useTheme } from 'next-themes';
+import { useTranslations } from 'next-intl';
 import { Menu, User, Sun, Moon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -17,6 +18,7 @@ const ProfileMenu = lazy(() => import('../profile/profile-menu'));
 export function Header() {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const t = useTranslations('Header');
 
   // Avoid hydration mismatch
   useEffect(() => {
@@ -47,7 +49,7 @@ export function Header() {
             <div className="hidden md:flex items-center">
               <Input
                 type="text"
-                placeholder="Search courses, skills..."
+                placeholder={t('searchPlaceholder')}
                 className="h-9 w-64 text-sm"
               />
             </div>
@@ -55,13 +57,13 @@ export function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            {navLinks.map(({ label, href }) => (
+            {navLinks.map(({ labelKey, href }) => (
               <Link
                 key={href}
                 href={href}
                 className="text-muted-foreground hover:text-primary transition-colors"
               >
-                {label}
+                {t(labelKey)}
               </Link>
             ))}
           </nav>
@@ -94,7 +96,7 @@ export function Header() {
               </Suspense>
             ) : (
               <Button variant="default" size="lg" asChild>
-                <Link href="/login">Log In</Link>
+                <Link href="/login">{t('login')}</Link>
               </Button>
             )}
             {/* <Button variant="default" size="lg" className="rounded-sm">
@@ -121,13 +123,13 @@ export function Header() {
               </div>
 
               <nav className="flex flex-col space-y-4">
-                {navLinks.map(({ label, href }) => (
+                {navLinks.map(({ labelKey, href }) => (
                   <Link
                     key={href}
                     href={href}
                     className="text-muted-foreground hover:text-primary transition-colors"
                   >
-                    {label}
+                    {t(labelKey)}
                   </Link>
                 ))}
               </nav>
@@ -135,7 +137,7 @@ export function Header() {
               <div className="flex flex-col space-y-2 pt-6 border-t mt-6">
                 <Button variant="outline" size="sm" className="justify-start">
                   <User className="h-4 w-4 mr-2" />
-                  Login
+                  {t('login')}
                 </Button>
                 <Button
                   variant="ghost"

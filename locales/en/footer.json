@@ -1,0 +1,29 @@
+{
+  "Footer": {
+    "company": "Company",
+    "others": "Others",
+    "contact": "Keep up with us at",
+    "downloadApp": "Download Our Mobile App",
+    "copyright": "2015 - 2025 Copyright © 10 Minute School. All rights reserved.",
+    "callUs": "Call Us:",
+    "whatsapp": "WhatsApp:",
+    "outsideBangladesh": "Outside Bangladesh:",
+    "emailUs": "Email Us:",
+    "companyLinks": {
+      "career": "Career / Recruitment",
+      "joinTeacher": "Join as a Teacher",
+      "joinAffiliate": "Join as an Affiliate",
+      "privacy": "Privacy Policy",
+      "refund": "Refund Policy",
+      "terms": "Terms & Conditions"
+    },
+    "otherLinks": {
+      "blog": "Blog",
+      "bookStore": "Book Store",
+      "freeNotes": "Free Notes & Guides",
+      "jobPrep": "Job Preparation Courses",
+      "verifyCert": "Verify Certificate",
+      "freeDownload": "Free Download"
+    }
+  }
+}

@@ -2,24 +2,25 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 import { Facebook, Instagram, Linkedin, Twitter, Youtube } from 'lucide-react';
 
 const companyLinks = [
-  'Career / Recruitment',
-  'Join as a Teacher',
-  'Join as an Affiliate',
-  'Privacy Policy',
-  'Refund Policy',
-  'Terms & Conditions',
+  { key: 'career', href: '#' },
+  { key: 'joinTeacher', href: '#' },
+  { key: 'joinAffiliate', href: '#' },
+  { key: 'privacy', href: '#' },
+  { key: 'refund', href: '#' },
+  { key: 'terms', href: '#' },
 ];
 
 const otherLinks = [
-  'Blog',
-  'Book Store',
-  'Free Notes & Guides',
-  'Job Preparation Courses',
-  'Verify Certificate',
-  'Free Download',
+  { key: 'blog', href: '#' },
+  { key: 'bookStore', href: '#' },
+  { key: 'freeNotes', href: '#' },
+  { key: 'jobPrep', href: '#' },
+  { key: 'verifyCert', href: '#' },
+  { key: 'freeDownload', href: '#' },
 ];
 
 const socialLinks = [
@@ -31,6 +32,8 @@ const socialLinks = [
 ];
 
 const Footer = () => {
+  const t = useTranslations('Footer');
+
   return (
     <footer className="bg-background text-foreground border-t py-10">
       <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -43,9 +46,7 @@ const Footer = () => {
             height={40}
             className="dark:invert"
           />
-          <p className="text-sm text-muted-foreground">
-            Download Our Mobile App
-          </p>
+          <p className="text-sm text-muted-foreground">{t('downloadApp')}</p>
           <div className="flex space-x-3">
             <Image
               src="/google-play-icon.jpg"
@@ -64,11 +65,11 @@ const Footer = () => {
 
         {/* Column 2: Company */}
         <div>
-          <h4 className="font-semibold mb-3">Company</h4>
+          <h4 className="font-semibold mb-3">{t('company')}</h4>
           <ul className="space-y-3 text-md text-muted-foreground">
-            {companyLinks.map((text, i) => (
-              <li key={i}>
-                <Link href="#">{text}</Link>
+            {companyLinks.map(({ key, href }) => (
+              <li key={key}>
+                <Link href={href}>{t(`companyLinks.${key}`)}</Link>
               </li>
             ))}
           </ul>
@@ -76,11 +77,11 @@ const Footer = () => {
 
         {/* Column 3: Others */}
         <div>
-          <h4 className="font-semibold mb-3">Others</h4>
+          <h4 className="font-semibold mb-3">{t('others')}</h4>
           <ul className="space-y-3 text-md text-muted-foreground">
-            {otherLinks.map((text, i) => (
-              <li key={i}>
-                <Link href="#">{text}</Link>
+            {otherLinks.map(({ key, href }) => (
+              <li key={key}>
+                <Link href={href}>{t(`otherLinks.${key}`)}</Link>
               </li>
             ))}
           </ul>
@@ -88,25 +89,25 @@ const Footer = () => {
 
         {/* Column 4: Contact */}
         <div className="space-y-4">
-          <h4 className="font-semibold">Keep up with us at</h4>
+          <h4 className="font-semibold">{t('contact')}</h4>
           <ul className="text-md text-muted-foreground space-y-3">
             <li>
-              Call Us: <span className="text-primary font-semibold">16910</span>{' '}
-              (24x7)
+              {t('callUs')}{' '}
+              <span className="text-primary font-semibold">16910</span> (24x7)
             </li>
             <li>
-              WhatsApp:{' '}
+              {t('whatsapp')}{' '}
               <span className="text-primary font-semibold">+8801896016252</span>{' '}
               (24x7)
             </li>
             <li>
-              Outside Bangladesh:{' '}
+              {t('outsideBangladesh')}{' '}
               <span className="text-primary font-semibold">
                 +880 9610916910
               </span>
             </li>
             <li>
-              Email Us:{' '}
+              {t('emailUs')}{' '}
               <Link
                 href="mailto:support@10minuteschool.com"
                 className="text-primary"
@@ -129,7 +130,7 @@ const Footer = () => {
 
       {/* Copyright */}
       <div className="mt-10 text-center text-xs text-muted-foreground">
-        2015 - 2025 Copyright © 10 Minute School. All rights reserved.
+        {t('copyright')}
       </div>
     </footer>
   );
