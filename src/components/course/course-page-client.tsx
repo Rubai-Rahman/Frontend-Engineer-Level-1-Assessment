@@ -1,6 +1,5 @@
 'use client';
 
-import { useCourse } from '@/hooks/use-course';
 import { CourseTrailer } from '@/components/course/course-trailer';
 import { CourseInstructors } from '@/components/course/course-instructors';
 import { CourseFeatures } from '@/components/course/course-features';
@@ -19,8 +18,7 @@ import { CourseCertificate } from '@/components/course/course-certificate';
 import { CourseGroupEngagement } from '@/components/course/course-group-engagement';
 import { CourseHowToPay } from '@/components/course/course-how-to-pay';
 import { CourseMediaGallery } from '@/components/course/course-media-gallery';
-import { LoadingSpinner } from '@/components/ui/loading-spinner';
-import { ErrorMessage } from '@/components/ui/error-message';
+
 import { CourseData } from '@/lib/types';
 import { Locale } from '@/i18n/config';
 
@@ -35,10 +33,8 @@ export function CoursePageClient({
   slug,
   locale,
 }: CoursePageClientProps) {
-  const { data: courseData, isLoading, error } = useCourse(slug, locale);
-
-  // Use courseData from the hook, or initialData as fallback
-  const currentData = courseData || initialData;
+  // Use the initialData passed from the server
+  const currentData = initialData;
 
   // Debug: Log all available sections
   console.log(
@@ -47,36 +43,6 @@ export function CoursePageClient({
   );
   console.log('Media items:', currentData?.media?.length);
   console.log('Checklist items:', currentData?.checklist?.length);
-
-  if (isLoading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <LoadingSpinner size="lg" />
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <ErrorMessage
-          title="Failed to load course data"
-          description="Please try refreshing the page or contact support if the problem persists."
-        />
-      </div>
-    );
-  }
-
-  if (!currentData) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <ErrorMessage
-          title="Course not found"
-          description="The requested course could not be found."
-        />
-      </div>
-    );
-  }
 
   // Extract sections by type (with safety checks)
   const instructorSections =

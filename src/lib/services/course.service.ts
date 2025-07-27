@@ -1,25 +1,24 @@
+import { cache } from 'react';
 import api from '@/lib/api';
-import { CourseData, Language } from '@/lib/types';
+import { CourseData } from '@/lib/types';
+import { Locale } from '@/i18n/config';
 
 export const courseService = {
-  // Get IELTS course data
-  getIeltsCourse: async (lang: Language = 'en'): Promise<CourseData> => {
-    const response = await api.get('/products/ielts-course', {
-      params: { lang },
-    });
-    // API returns data in nested structure: { data: { data: CourseData } }
-    return response.data.data;
-  },
-
-  // Get course by slug (for future extensibility)
+  // Get course by slug
   getCourseBySlug: async (
     slug: string,
-    lang: Language = 'en'
+    locale: Locale = 'bn'
   ): Promise<CourseData> => {
     const response = await api.get(`/products/${slug}`, {
-      params: { lang },
+      params: { lang: locale },
     });
-    // API returns data in nested structure: { data: { data: CourseData } }
     return response.data.data;
   },
 };
+
+// Cached version for server-side usage to avoid duplicate API calls
+export const getCachedCourseData = cache(
+  async (slug: string, locale: Locale): Promise<CourseData> => {
+    return await courseService.getCourseBySlug(slug, locale);
+  }
+);

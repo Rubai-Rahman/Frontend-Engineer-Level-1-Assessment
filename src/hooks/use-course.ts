@@ -10,23 +10,12 @@ export const courseKeys = {
     [...courseKeys.all, slug, locale] as const,
 };
 
-// Get IELTS course data
-export function useIeltsCourse(locale: Locale = 'en') {
-  return useQuery({
-    queryKey: courseKeys.ielts(locale),
-    queryFn: () => courseService.getIeltsCourse(locale),
-    staleTime: 5 * 60 * 1000, // 5 minutes
-    gcTime: 10 * 60 * 1000, // 10 minutes
-  });
-}
-
 // Get course by slug
-export function useCourse(slug: string, locale: Locale = 'en') {
+export function useCourse(slug: string, locale: Locale = 'bn') {
   return useQuery({
     queryKey: courseKeys.bySlug(slug, locale),
     queryFn: () => courseService.getCourseBySlug(slug, locale),
     enabled: !!slug,
     staleTime: 5 * 60 * 1000,
-    gcTime: 10 * 60 * 1000,
   });
 }

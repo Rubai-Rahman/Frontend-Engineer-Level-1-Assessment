@@ -72,7 +72,7 @@ api.interceptors.response.use(
       console.error('❌ Access denied');
     }
 
-    if (error.response?.status >= 500) {
+    if (error.response?.status && error.response.status >= 500) {
       // Server error
       console.error('❌ Server error');
     }
