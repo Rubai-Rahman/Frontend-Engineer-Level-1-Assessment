@@ -5,6 +5,8 @@ export interface Medium {
   url: string;
   title?: string;
   thumbnail?: string;
+  name?: string;
+  resource_type?: string;
 }
 
 export interface Checklist {
@@ -31,11 +33,28 @@ export interface CtaText {
 
 export interface Section {
   id: number;
-  type: 'instructor' | 'features' | 'pointers' | 'about';
+  type:
+    | 'instructor'
+    | 'instructors'
+    | 'features'
+    | 'pointers'
+    | 'about'
+    | 'testimonials'
+    | 'faq'
+    | 'offers'
+    | 'content_preview'
+    | 'feature_explanations'
+    | 'requirements'
+    | 'free_items'
+    | 'certificate'
+    | 'bundle_certificate'
+    | 'group_join_engagement'
+    | 'how_to_pay'
+    | 'bundle_items';
   title: string;
   content: string;
-  data?: any;
-  items?: any[];
+  data?: unknown;
+  items?: unknown[];
 }
 
 export interface Instructor {
@@ -48,7 +67,7 @@ export interface Instructor {
   expertise?: string[];
 }
 
-export interface CourseData {
+export interface courseDataType {
   slug: string;
   id: number;
   title: string;
