@@ -4,6 +4,7 @@ import './globals.css';
 import Providers from './provider';
 import { Header } from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
+import { getLocale, getMessages } from 'next-intl/server';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -59,13 +60,16 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const locale = await getLocale();
+  const messages = await getMessages();
+
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang={locale} suppressHydrationWarning>
       <head>
         <link
           rel="canonical"
@@ -77,7 +81,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Providers>
+        <Providers locale={locale} messages={messages}>
           <Header />
           {children}
           <Footer />

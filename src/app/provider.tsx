@@ -12,6 +12,14 @@ import {
   QueryClientProvider,
 } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import { NextIntlClientProvider } from 'next-intl';
+import { ReactNode } from 'react';
+
+type Props = {
+  children: ReactNode;
+  messages?: Record<string, unknown>;
+  locale: string;
+};
 
 const onGlobalQueryError = (
   error: DefaultError,
@@ -84,19 +92,21 @@ function getQueryClient() {
   }
 }
 
-export default function Providers({ children }: { children: React.ReactNode }) {
+export default function Providers({ children, messages, locale }: Props) {
   const queryClient = getQueryClient();
 
   return (
     <QueryClientProvider client={queryClient}>
-      <ThemeProvider
-        attribute="class"
-        defaultTheme="light"
-        enableSystem
-        disableTransitionOnChange
-      >
-        {children}
-      </ThemeProvider>
+      <NextIntlClientProvider messages={messages} locale={locale}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
+      </NextIntlClientProvider>
       <ReactQueryDevtools initialIsOpen={false} buttonPosition="bottom-right" />
     </QueryClientProvider>
   );

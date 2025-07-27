@@ -10,6 +10,7 @@ import { Input } from '@/components/ui/input';
 import { Sheet, SheetTrigger, SheetContent } from '@/components/ui/sheet';
 import logo from '../../../public/10mslogo-svg.svg';
 import { navLinks } from '@/lib/constant';
+import LocaleSwitcherToggle from '../main/locale-switcher';
 
 const ProfileMenu = lazy(() => import('../profile/profile-menu'));
 
@@ -22,11 +23,7 @@ export function Header() {
     setMounted(true);
   }, []);
 
-  const [language, setLanguage] = useState<'en' | 'bn'>('en');
-
   const toggleTheme = () => setTheme(theme === 'dark' ? 'light' : 'dark');
-  const toggleLanguage = () =>
-    setLanguage((prev) => (prev === 'en' ? 'bn' : 'en'));
 
   const auth = false;
   if (!mounted) return null;
@@ -71,14 +68,12 @@ export function Header() {
 
           {/* Desktop Actions */}
           <div className="hidden md:flex items-center space-x-4">
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={toggleLanguage}
-              className="text-xs"
-            >
-              {language === 'en' ? 'EN' : 'BN'}
-            </Button>
+            <LocaleSwitcherToggle
+              items={[
+                { value: 'en', label: 'বাংলা' },
+                { value: 'bn', label: 'English' },
+              ]}
+            />
 
             <Button variant="ghost" size="sm" onClick={toggleTheme}>
               {theme === 'dark' ? (
@@ -158,14 +153,12 @@ export function Header() {
                     </>
                   )}
                 </Button>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  className="justify-start text-xs"
-                  onClick={toggleLanguage}
-                >
-                  {language === 'en' ? 'Switch to বাংলা' : 'Switch to English'}
-                </Button>
+                <LocaleSwitcherToggle
+                  items={[
+                    { value: 'en', label: 'Switch to বাংলা' },
+                    { value: 'bn', label: 'Switch to English' },
+                  ]}
+                />
               </div>
             </SheetContent>
           </Sheet>
