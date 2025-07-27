@@ -1,8 +1,6 @@
 'use client';
 
-import { useState } from 'react';
 import { useCourse } from '@/hooks/use-course';
-import { CourseHeader } from '@/components/course/course-header';
 import { CourseTrailer } from '@/components/course/course-trailer';
 import { CourseInstructors } from '@/components/course/course-instructors';
 import { CourseFeatures } from '@/components/course/course-features';
@@ -23,22 +21,21 @@ import { CourseHowToPay } from '@/components/course/course-how-to-pay';
 import { CourseMediaGallery } from '@/components/course/course-media-gallery';
 import { LoadingSpinner } from '@/components/ui/loading-spinner';
 import { ErrorMessage } from '@/components/ui/error-message';
-import { ThemeToggle } from '@/components/ui/theme-toggle';
-import { CourseData, Language } from '@/lib/types';
+import { CourseData } from '@/lib/types';
+import { Locale } from '@/i18n/config';
 
 interface CoursePageClientProps {
   initialData: CourseData;
   slug: string;
-  initialLang: Language;
+  locale: Locale;
 }
 
 export function CoursePageClient({
   initialData,
   slug,
-  initialLang,
+  locale,
 }: CoursePageClientProps) {
-  const [language, setLanguage] = useState<Language>(initialLang);
-  const { data: courseData, isLoading, error } = useCourse(slug, language);
+  const { data: courseData, isLoading, error } = useCourse(slug, locale);
 
   // Use courseData from the hook, or initialData as fallback
   const currentData = courseData || initialData;
@@ -358,21 +355,6 @@ export function CoursePageClient({
           </div>
         </div>
       </div>
-
-      {/* Enhanced Loading overlay when switching languages */}
-      {isLoading && currentData && (
-        <div className="fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm flex items-center justify-center z-50">
-          <div className="bg-white p-8 rounded-2xl shadow-2xl border border-gray-100 max-w-sm mx-4">
-            <div className="text-center">
-              <LoadingSpinner size="lg" />
-              <p className="mt-4 text-lg font-medium text-gray-900">
-                Switching language...
-              </p>
-              <p className="mt-2 text-sm text-gray-600">Please wait a moment</p>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 }

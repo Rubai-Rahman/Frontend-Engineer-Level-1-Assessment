@@ -1,20 +1,19 @@
 'use client';
 
-import { useParams, useSearchParams } from 'next/navigation';
+import { useParams } from 'next/navigation';
+import { useLocale } from 'next-intl';
 import { CoursePageClient } from '@/components/course/course-page-client';
 import { useCourse } from '@/hooks/use-course';
 import { LoadingSpinner } from '@/components/ui/loading-spinner';
 import { ErrorMessage } from '@/components/ui/error-message';
-import { Language } from '@/lib/types';
+import { Locale } from '@/i18n/config';
 
 export default function CoursePage() {
   const params = useParams();
-  const searchParams = useSearchParams();
-
+  const locale = useLocale() as Locale;
   const slug = params.slug as string;
-  const lang = (searchParams.get('lang') as Language) || 'en';
 
-  const { data: courseData, isLoading, error } = useCourse(slug, lang);
+  const { data: courseData, isLoading, error } = useCourse(slug, locale);
 
   if (isLoading) {
     return (
@@ -47,6 +46,6 @@ export default function CoursePage() {
   }
 
   return (
-    <CoursePageClient initialData={courseData} slug={slug} initialLang={lang} />
+    <CoursePageClient initialData={courseData} slug={slug} locale={locale} />
   );
 }
