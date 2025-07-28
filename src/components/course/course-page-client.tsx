@@ -7,6 +7,7 @@ import InstructorsSection from './course-instructors';
 import CourseFeaturesSection from './course-features';
 import FreePDFSection from './courese-fre-pdf';
 import { CoursePointers } from './course-pointers';
+import { CourseDetailsSection } from './course-details';
 
 interface CoursePageClientProps {
   courseData: courseDataType;
@@ -78,6 +79,7 @@ export function CoursePageClient({ courseData }: CoursePageClientProps) {
           )}
           {groupJoinSection && <FreePDFSection section={groupJoinSection} />}
           {pointersSection && <CoursePointers sections={[pointersSection]} />}
+          {aboutSection && <CourseDetailsSection sections={[aboutSection]} />}
         </section>
       </main>
 

@@ -22,7 +22,7 @@ export default function LearningPointsSection({
     >
       <div className="pt-6 pb-6 bg-background md:pb-0 md:pt-0">
         <div>
-          <h2 className="mb-4 text-xl font-semibold md:text-2xl text-foreground">
+          <h2 className="mb-4 text-xl font-semibold md:text-3xl text-foreground">
             {section.name}
           </h2>
           <div className="rounded-md md:border border-border">
