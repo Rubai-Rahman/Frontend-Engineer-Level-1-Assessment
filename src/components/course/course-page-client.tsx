@@ -9,6 +9,7 @@ import FreePDFSection from './courese-free-pdf';
 import { CoursePointers } from './course-pointers';
 import { CourseDetailsSection } from './course-details';
 import ExclusiveFeaturesSection from './courese-exclusive-features-seciton';
+import StickyPricingCard from './sticky-pricing-card';
 
 interface CoursePageClientProps {
   courseData: courseDataType;
@@ -74,6 +75,11 @@ export function CoursePageClient({ courseData }: CoursePageClientProps) {
             <ExclusiveFeaturesSection section={exclusiveFeaturesSection} />
           )}
         </section>
+
+        {/* Right Column - Sticky Pricing Card */}
+        <div className="md:col-span-3">
+          <StickyPricingCard course={courseData} />
+        </div>
       </main>
 
       {/* Related Courses */}
