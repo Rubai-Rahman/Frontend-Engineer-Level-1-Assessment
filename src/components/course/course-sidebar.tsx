@@ -20,11 +20,9 @@ export default function CourseSidebar({ course }: CourseSidebarProps) {
         {/* Pricing Card */}
         <div className="sticky top-10">
           <PricingCard course={course} />
-
-          {/* Course Checklist / What's included */}
         </div>
       </div>
-      <p className="justify-between hidden mt-4 text-sm text-center text-gray-400 md:flex md:flex-col lg:flex lg:flex-row">
+      <p className="justify-between mt-4 text-sm text-center text-gray-400 md:flex md:flex-col lg:flex lg:flex-row">
         <span>কোর্সটি সম্পর্কে বিস্তারিত জানতে</span>
         <span className="flex items-center justify-center ml-2 underline cursor-pointer text-primary">
           <Phone className="w-4 h-4" />{' '}

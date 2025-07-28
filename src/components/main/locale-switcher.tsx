@@ -29,7 +29,7 @@ export default function LocaleSwitcherToggle({ items }: Props) {
       variant="outline"
       size="sm"
       disabled={isPending}
-      className="px-3"
+      className="w-1/2 md:w-auto justify-start"
     >
       {isPending ? 'Switching...' : nextLocale.label}
     </Button>

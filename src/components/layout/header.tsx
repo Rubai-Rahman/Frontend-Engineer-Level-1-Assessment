@@ -138,7 +138,7 @@ export function Header() {
               </nav>
 
               <div className="flex flex-col space-y-2 pt-6 border-t mt-6">
-                <Button variant="outline" size="sm" className="justify-start">
+                <Button variant="outline" size="sm" className="w-1/2">
                   <User className="h-4 w-4 mr-2" />
                   {t('login')}
                 </Button>

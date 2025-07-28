@@ -63,9 +63,7 @@ export default function PricingCard({
       </CardHeader>
 
       {/* Course Checklist / What's included */}
-      <CardContent
-        className={`${isCompact ? 'block' : 'hidden md:block'} pt-0 pb-6`}
-      >
+      <CardContent className={`${isCompact ? 'block' : ' md:block'} pt-0 pb-6`}>
         <div className="space-y-4">
           <h3
             className={`font-semibold text-foreground ${

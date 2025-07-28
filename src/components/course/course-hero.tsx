@@ -55,22 +55,22 @@ export default function CourseHero({ course }: CourseHeroProps) {
         )}
       </div>
 
-      {/* Mobile Course Title/Description (hidden on md+) */}
+      {/* Mobile Course Title/Description (hidden on md+)
       <div className="items-center block md:hidden">
-        <h1 className="text-white mb-3 mt-3 text-[21px] font-semibold md:text-4xl">
+        <h1 className="text-white mb-3 mt-3 text-sm font-semibold md:text-4xl">
           {course.title}
         </h1>
         <div
           className="mb-4 text-sm font-normal"
           dangerouslySetInnerHTML={{ __html: course.description || '' }}
         />
-      </div>
+      </div> */}
 
       {/* Desktop Course Title/Description */}
-      <h1 className="text-white mb-2 text-[21px] font-semibold md:text-4xl hidden md:block">
+      <h1 className="text-white mb-2 text-sm font-semibold md:text-4xl  md:block">
         {course.title}
       </h1>
-      <div className="mb-2 hidden md:block">
+      <div className="mb-2 block">
         <button className="flex flex-row flex-wrap gap-2 text-white hover:cursor-pointer">
           <Image
             className=""
@@ -84,9 +84,9 @@ export default function CourseHero({ course }: CourseHeroProps) {
           </span>
         </button>
       </div>
-      <div className="hidden md:block">
+      <div className="block">
         <div
-          className="text-gray-400"
+          className="text-muted-foreground"
           dangerouslySetInnerHTML={{ __html: course.description || '' }}
         />
       </div>
