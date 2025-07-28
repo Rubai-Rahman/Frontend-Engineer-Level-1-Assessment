@@ -1,97 +1,47 @@
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Section } from '@/lib/types';
-import { Star, CheckCircle } from 'lucide-react';
+import { CheckCircle } from 'lucide-react';
+import { Section } from '@/types/course.type';
 
-interface CourseFeatureExplanationsProps {
-  sections: Section[];
+interface LearningPoint {
+  id?: number;
+  text: string;
 }
 
-export function CourseFeatureExplanations({
-  sections,
-}: CourseFeatureExplanationsProps) {
-  if (!sections || sections.length === 0) {
-    return null;
-  }
+interface LearningPointsSectionProps {
+  section: Section;
+}
+
+export default function LearningPointsSection({
+  section,
+}: LearningPointsSectionProps) {
+  const points = (section.values as LearningPoint[]) || [];
 
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle className="flex items-center gap-2">
-          <Star className="h-5 w-5 text-blue-600" />
-          {sections[0]?.name || 'Course Exclusive Features'}
-        </CardTitle>
-      </CardHeader>
-      <CardContent className="space-y-6">
-        {sections.map((section) => (
-          <div key={section.type}>
-            {section.description && (
-              <div
-                className="prose prose-gray max-w-none mb-4"
-                dangerouslySetInnerHTML={{ __html: section.description }}
-              />
-            )}
-
-            {/* Render feature explanations */}
-            {section.values && section.values.length > 0 && (
-              <div className="grid gap-6 md:grid-cols-2">
-                {section.values.map((feature: any, index: number) => (
-                  <div
-                    key={feature.id || index}
-                    className="p-6 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg border border-blue-100"
+    <div
+      id="pointers"
+      className="mb-6 md:mb-10 relative bg-muted py-2 md:bg-background md:py-0"
+    >
+      <div className="pt-6 pb-6 bg-background md:pb-0 md:pt-0">
+        <div>
+          <h2 className="mb-4 text-xl font-semibold md:text-2xl text-foreground">
+            {section.name}
+          </h2>
+          <div className="rounded-md md:border border-border">
+            <div className="pt-2 md:p-6">
+              <ul className="grid grid-cols-1 gap-2 md:grid-cols-[1fr_1fr] md:gap-4">
+                {points.map((point: LearningPoint, index: number) => (
+                  <li
+                    key={point.id || index}
+                    className="flex items-start gap-2 mb-2"
                   >
-                    <div className="flex items-start gap-4">
-                      {feature.file_url && (
-                        <div className="w-16 h-16 flex-shrink-0">
-                          <img
-                            src={feature.file_url}
-                            alt={feature.title}
-                            className="w-full h-full object-cover rounded-lg"
-                          />
-                        </div>
-                      )}
-                      <div className="flex-1">
-                        <h4 className="font-semibold text-gray-900 mb-3">
-                          {feature.title}
-                        </h4>
-
-                        {/* Render checklist items */}
-                        {feature.checklist && feature.checklist.length > 0 && (
-                          <div className="space-y-2">
-                            {feature.checklist.map(
-                              (item: string, idx: number) => (
-                                <div
-                                  key={idx}
-                                  className="flex items-start gap-2"
-                                >
-                                  <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                                  <span className="text-sm text-gray-700">
-                                    {item}
-                                  </span>
-                                </div>
-                              )
-                            )}
-                          </div>
-                        )}
-
-                        {/* Video thumbnail if available */}
-                        {feature.video_thumbnail && (
-                          <div className="mt-3">
-                            <img
-                              src={feature.video_thumbnail}
-                              alt="Feature preview"
-                              className="w-full h-24 object-cover rounded"
-                            />
-                          </div>
-                        )}
-                      </div>
-                    </div>
-                  </div>
+                    <CheckCircle className="w-5 h-5 text-primary mr-1 mt-[2px] flex-shrink-0" />
+                    <div className="flex-1 text-foreground">{point.text}</div>
+                  </li>
                 ))}
-              </div>
-            )}
+              </ul>
+            </div>
           </div>
-        ))}
-      </CardContent>
-    </Card>
+        </div>
+      </div>
+    </div>
   );
 }

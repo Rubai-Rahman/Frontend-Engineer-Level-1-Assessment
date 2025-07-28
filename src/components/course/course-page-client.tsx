@@ -6,6 +6,7 @@ import CourseSidebar from './course-sidebar';
 import InstructorsSection from './course-instructors';
 import CourseFeaturesSection from './course-features';
 import FreePDFSection from './courese-fre-pdf';
+import { CoursePointers } from './course-pointers';
 
 interface CoursePageClientProps {
   courseData: courseDataType;
@@ -76,6 +77,7 @@ export function CoursePageClient({ courseData }: CoursePageClientProps) {
             <CourseFeaturesSection section={featuresSection} />
           )}
           {groupJoinSection && <FreePDFSection section={groupJoinSection} />}
+          {pointersSection && <CoursePointers sections={[pointersSection]} />}
         </section>
       </main>
 
