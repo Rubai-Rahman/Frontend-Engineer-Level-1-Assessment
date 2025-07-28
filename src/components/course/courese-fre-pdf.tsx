@@ -52,8 +52,8 @@ export default function FreePDFSection({ section }: FreePDFSectionProps) {
                       <Image
                         src={item.top_left_icon_img}
                         alt="Section icon"
-                        width={40}
-                        height={40}
+                        width={150}
+                        height={150}
                         className="object-contain"
                       />
                     </div>
