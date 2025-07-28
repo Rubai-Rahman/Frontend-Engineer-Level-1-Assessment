@@ -109,7 +109,7 @@ const VideoCarousel = ({ videos }: VideoCarouselProps) => {
                       `https://img.youtube.com/vi/${video.resource_value}/mqdefault.jpg`
                     }
                     alt={`Video ${index + 1}`}
-                    className="w-18 h-12 object-cover rounded"
+                    className="w-15 h-12 object-cover rounded"
                   />
                   <div className="absolute inset-0 bg-opacity-30 flex items-center justify-center">
                     <Play className="w-3 h-3 text-white" fill="white" />
