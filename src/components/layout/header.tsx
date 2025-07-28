@@ -8,7 +8,12 @@ import { useTranslations } from 'next-intl';
 import { Menu, User, Sun, Moon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Sheet, SheetTrigger, SheetContent } from '@/components/ui/sheet';
+import {
+  Sheet,
+  SheetTrigger,
+  SheetContent,
+  SheetTitle,
+} from '@/components/ui/sheet';
 import logo from '../../../public/10mslogo-svg.svg';
 import { navLinks } from '@/lib/constant';
 import LocaleSwitcherToggle from '../main/locale-switcher';
@@ -99,9 +104,6 @@ export function Header() {
                 <Link href="/login">{t('login')}</Link>
               </Button>
             )}
-            {/* <Button variant="default" size="lg" className="rounded-sm">
-              Login
-            </Button> */}
           </div>
 
           {/* Mobile Menu (Sheet) */}
@@ -111,6 +113,7 @@ export function Header() {
                 <Menu className="h-6 w-6" />
               </Button>
             </SheetTrigger>
+            <SheetTitle className="sr-only">Menu</SheetTitle>
             <SheetContent side="left" className="w-[260px] sm:w-[300px] p-4">
               <div className="flex items-center space-x-2 mb-6">
                 <Image
