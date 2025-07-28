@@ -19,7 +19,7 @@ export default function PricingCard({
   return (
     <Card className={className}>
       <CardHeader
-        className={`p-4 md:p-6 ${isCompact ? 'pb-3' : ''}`}
+        className={`p-3 md:p-6 ${isCompact ? 'pb-3' : ''}`}
         id={variant === 'default' ? 'variant' : undefined}
       >
         <div className="flex flex-col w-full space-y-4">

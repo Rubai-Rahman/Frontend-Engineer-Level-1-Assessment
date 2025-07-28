@@ -7,15 +7,6 @@ interface CourseHeroProps {
 }
 
 export default function CourseHero({ course }: CourseHeroProps) {
-  const participantsInfo = course.checklist?.find((item) =>
-    item.text.includes('কোর্সটি করছেন')
-  );
-  const timeInfo = course.checklist?.find((item) =>
-    item.text.includes('সময় লাগবে')
-  );
-  const videoInfo = course.checklist?.find((item) =>
-    item.text.includes('ভিডিও')
-  );
   const heroVideo = course.media?.find(
     (m) => m.resource_type === 'video' && m.name === 'preview_gallery'
   );

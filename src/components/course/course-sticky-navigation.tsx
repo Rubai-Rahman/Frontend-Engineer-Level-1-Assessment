@@ -143,7 +143,7 @@ export default function CourseStickyNavigation({
   }, []);
 
   return (
-    <div className="sticky top-[65px] z-20 hidden  md:block border-b">
+    <div className="sticky top-[65px] z-20 hidden bg-background  md:block border-b">
       <div className="relative">
         {/* Left scroll button */}
         <button

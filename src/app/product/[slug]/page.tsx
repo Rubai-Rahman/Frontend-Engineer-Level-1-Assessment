@@ -18,7 +18,7 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const locale = (await getLocale()) as Locale;
-  const { slug } = await params;
+  const { slug } = params;
 
   try {
     const courseData = await getCachedCourseData(slug, locale);
@@ -87,7 +87,7 @@ export default async function Page({ params }: PageProps) {
 
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
-      <ProductPage slug={slug} locale={locale} />
+      <ProductPage params={{ slug, locale }} />
     </HydrationBoundary>
   );
 }

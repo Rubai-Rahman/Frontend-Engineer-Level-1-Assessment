@@ -7,11 +7,15 @@ import ProductPageSkeleton from '@/components/skeletons/product-page-skeleton';
 import ApiError from '@/components/errors/api-error';
 
 interface ProductPageProps {
-  slug: string;
-  locale: Locale;
+  params: {
+    slug: string;
+    locale: Locale;
+  };
 }
 
-export default function ProductPage({ slug, locale }: ProductPageProps) {
+export default function ProductPage({ params }: ProductPageProps) {
+  const { slug, locale } = params;
+
   const {
     data: courseData,
     isLoading,
