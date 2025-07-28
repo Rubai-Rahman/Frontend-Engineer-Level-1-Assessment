@@ -10,7 +10,7 @@ interface CourseSidebarProps {
 
 export default function CourseSidebar({ course }: CourseSidebarProps) {
   return (
-    <section className="w-full md:max-w-[330px] lg:max-w-[400px] 2xl:max-w-[475px] bg-card order-2 absolute ">
+    <section className=" md:max-w-[330px] lg:max-w-[400px] 2xl:max-w-[475px] bg-card order-2 absolute ">
       <div className="md:border">
         {/* Desktop Video Carousel */}
         <div className="hidden p-1 md:block" id="trailer_sticky">

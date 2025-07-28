@@ -15,7 +15,7 @@ export default function CourseHero({ course }: CourseHeroProps) {
   return (
     <>
       {/* Mobile Video Carousel (hidden on md+) */}
-      <div className="block mt-4 md:mt-0 md:hidden">
+      <div className="block mt-0 md:hidden">
         {heroVideo && (
           <YouTubePlayer
             videoId={heroVideo.resource_value}
@@ -56,8 +56,8 @@ export default function CourseHero({ course }: CourseHeroProps) {
       </div>
 
       {/* Mobile Course Title/Description (hidden on md+) */}
-      <div className="block md:hidden">
-        <h1 className="text-gray-900 mb-3 mt-3 text-[21px] font-semibold md:text-4xl">
+      <div className="items-center block md:hidden">
+        <h1 className="text-white mb-3 mt-3 text-[21px] font-semibold md:text-4xl">
           {course.title}
         </h1>
         <div
