@@ -160,8 +160,8 @@ export function Header() {
                 </Button>
                 <LocaleSwitcherToggle
                   items={[
-                    { value: 'en', label: 'Switch to বাংলা' },
-                    { value: 'bn', label: 'Switch to English' },
+                    { value: 'en', label: ' বাংলা' },
+                    { value: 'bn', label: 'English' },
                   ]}
                 />
               </div>
