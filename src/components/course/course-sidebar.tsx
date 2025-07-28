@@ -19,7 +19,7 @@ export default function CourseSidebar({ course }: CourseSidebarProps) {
           </div>
 
           {/* Pricing Card */}
-          <div className="sticky top-10 bg-card">
+          <div className="sticky top-10">
             <PricingCard course={course} />
 
             {/* Course Checklist / What's included */}
