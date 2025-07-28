@@ -1,7 +1,8 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useMemo } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { Section } from '@/types/course.type';
 
 interface NavigationItem {
   id: string;
@@ -11,12 +12,12 @@ interface NavigationItem {
 
 interface CourseStickyNavigationProps {
   sections: {
-    instructorSection?: any;
-    featuresSection?: any;
-    groupJoinSection?: any;
-    pointersSection?: any;
-    aboutSection?: any;
-    exclusiveFeaturesSection?: any;
+    instructorSection?: Section;
+    featuresSection?: Section;
+    groupJoinSection?: Section;
+    pointersSection?: Section;
+    aboutSection?: Section;
+    exclusiveFeaturesSection?: Section;
   };
 }
 
@@ -29,51 +30,60 @@ export default function CourseStickyNavigation({
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   // Define navigation items based on available sections
-  const navigationItems: NavigationItem[] = [
-    { id: 'overview', label: 'Overview', sectionId: 'overview-section' },
-    ...(sections.instructorSection
-      ? [
-          {
-            id: 'instructors',
-            label: 'Course instructor',
-            sectionId: 'instructors-section',
-          },
-        ]
-      : []),
-    ...(sections.featuresSection
-      ? [
-          {
-            id: 'features',
-            label: 'How the course is laid out',
-            sectionId: 'features-section',
-          },
-        ]
-      : []),
-    ...(sections.groupJoinSection
-      ? [{ id: 'free-pdf', label: 'Free items', sectionId: 'free-pdf-section' }]
-      : []),
-    ...(sections.pointersSection
-      ? [
-          {
-            id: 'pointers',
-            label: 'What you will learn',
-            sectionId: 'pointers-section',
-          },
-        ]
-      : []),
-    ...(sections.aboutSection
-      ? [{ id: 'about', label: 'Course details', sectionId: 'about-section' }]
-      : []),
-    ...(sections.exclusiveFeaturesSection
-      ? [
-          {
-            id: 'exclusive',
-            label: 'Exclusive Feature',
-            sectionId: 'exclusive-section',
-          },
-        ]
-      : []),
-  ];
+  const navigationItems: NavigationItem[] = useMemo(
+    () => [
+      { id: 'overview', label: 'Overview', sectionId: 'overview-section' },
+      ...(sections.instructorSection
+        ? [
+            {
+              id: 'instructors',
+              label: 'Course instructor',
+              sectionId: 'instructors-section',
+            },
+          ]
+        : []),
+      ...(sections.featuresSection
+        ? [
+            {
+              id: 'features',
+              label: 'How the course is laid out',
+              sectionId: 'features-section',
+            },
+          ]
+        : []),
+      ...(sections.groupJoinSection
+        ? [
+            {
+              id: 'free-pdf',
+              label: 'Free items',
+              sectionId: 'free-pdf-section',
+            },
+          ]
+        : []),
+      ...(sections.pointersSection
+        ? [
+            {
+              id: 'pointers',
+              label: 'What you will learn',
+              sectionId: 'pointers-section',
+            },
+          ]
+        : []),
+      ...(sections.aboutSection
+        ? [{ id: 'about', label: 'Course details', sectionId: 'about-section' }]
+        : []),
+      ...(sections.exclusiveFeaturesSection
+        ? [
+            {
+              id: 'exclusive',
+              label: 'Exclusive Feature',
+              sectionId: 'exclusive-section',
+            },
+          ]
+        : []),
+    ],
+    [sections]
+  );
 
   // Handle scroll to section
   const scrollToSection = (sectionId: string) => {
@@ -118,29 +128,6 @@ export default function CourseStickyNavigation({
     );
   };
 
-  // Detect active section on scroll
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = navigationItems.map((item) => ({
-        id: item.id,
-        element: document.getElementById(item.sectionId),
-      }));
-
-      const currentSection = sections.find((section) => {
-        if (!section.element) return false;
-        const rect = section.element.getBoundingClientRect();
-        return rect.top <= 150 && rect.bottom >= 150;
-      });
-
-      if (currentSection) {
-        setActiveSection(currentSection.id);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [navigationItems]);
-
   // Update scroll buttons on container scroll
   useEffect(() => {
     const container = scrollContainerRef.current;
@@ -156,12 +143,12 @@ export default function CourseStickyNavigation({
   }, []);
 
   return (
-    <div className="sticky top-[65px] z-20 hidden bg-white md:block border-b">
+    <div className="sticky top-[65px] z-20 hidden  md:block border-b">
       <div className="relative">
         {/* Left scroll button */}
         <button
           onClick={() => handleScroll('left')}
-          className={`absolute left-0 top-1/2 z-10 -translate-y-1/2 p-2 bg-white shadow-md rounded-full transition-opacity ${
+          className={`absolute left-0 top-1/2 z-10 -translate-y-1/2 p-2 bg-foreground text-primary shadow-md rounded-full transition-opacity ${
             canScrollLeft
               ? 'opacity-100 cursor-pointer'
               : 'opacity-30 pointer-events-none'
@@ -174,7 +161,7 @@ export default function CourseStickyNavigation({
         {/* Right scroll button */}
         <button
           onClick={() => handleScroll('right')}
-          className={`absolute right-0 top-1/2 z-10 -translate-y-1/2 p-2 bg-white shadow-md rounded-full transition-opacity ${
+          className={`absolute right-0 top-1/2 z-10 -translate-y-1/2 p-2 bg-foreground text-primary shadow-md rounded-full transition-opacity ${
             canScrollRight
               ? 'opacity-100 cursor-pointer'
               : 'opacity-30 pointer-events-none'

@@ -17,10 +17,6 @@ interface CoursePageClientProps {
 }
 
 export function CoursePageClient({ courseData }: CoursePageClientProps) {
-  console.log('courseData', courseData);
-  console.log('Checklist items:', courseData?.checklist?.length);
-  console.log('Media items:', courseData?.media?.length);
-  console.log('Sections:', courseData?.sections?.length);
   // Get all sections
   const sections = courseData.sections || [];
 
@@ -63,90 +59,49 @@ export function CoursePageClient({ courseData }: CoursePageClientProps) {
       <main className="container px-6 mx-auto grid grid-cols-9 ">
         <section className=" md:col-span-6  px-8">
           {/* Sticky Navigation for desktop */}
-          <div className="sticky top-[65px] z-20 hidden bg-white md:block">
-            <div className="tenms-carousel relative light right">
-              <div className="w-full overflow-hidden">
-                <div className="cursor-pointer absolute right-0 top-1/2 z-[3] block -translate-y-1/2 cursor-pointer mx-lg:hidden">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="33"
-                    height="32"
-                    fill="none"
-                    viewBox="0 0 33 32"
-                    className="xl:mr-[-40px]"
-                  >
-                    <path
-                      fill="#000"
-                      fillOpacity="0.5"
-                      fillRule="evenodd"
-                      d="M16.757 32c8.836 0 16-7.163 16-16s-7.164-16-16-16c-8.837 0-16 7.163-16 16s7.163 16 16 16zM15.064 8.893a1 1 0 00-1.415 1.415L19.342 16l-5.693 5.692a1 1 0 001.415 1.415l6.4-6.4a1 1 0 000-1.414l-6.4-6.4z"
-                      clipRule="evenodd"
-                    ></path>
-                  </svg>
-                </div>
-                <div className="cursor-pointer absolute left-0 top-1/2 z-[2] block -translate-y-1/2 cursor-pointer mx-lg:hidden pointer-events-none opacity-10">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="33"
-                    height="32"
-                    fill="none"
-                    viewBox="0 0 33 32"
-                    className="rotate-180 xl:ml-[-40px]"
-                  >
-                    <path
-                      fill="#000"
-                      fillOpacity="0.5"
-                      fillRule="evenodd"
-                      d="M16.757 32c8.836 0 16-7.163 16-16s-7.164-16-16-16c-8.837 0-16 7.163-16 16s7.163 16 16 16zM15.064 8.893a1 1 0 00-1.415 1.415L19.342 16l-5.693 5.692a1 1 0 001.415 1.415l6.4-6.4a1 1 0 000-1.414l-6.4-6.4z"
-                      clipRule="evenodd"
-                    ></path>
-                  </svg>
-                </div>
-              </div>
-              <div className="scrollbar-hide relative flex flex-nowrap gap-4 overflow-x-scroll scroll-smooth snap-x snap-mandatory">
-                <ul className="flex my-4 border-b flex-nowrap">
-                  <li className="text-nowrap p-2 text-base text-gray-600">
-                    <button>Overview</button>
-                  </li>
-                  <li className="text-nowrap p-2 text-base text-gray-600">
-                    <button>Course instructor</button>
-                  </li>
-                  <li className="text-nowrap p-2 text-base text-gray-600">
-                    <button>How the course is laid out</button>
-                  </li>
-                  <li className="text-nowrap p-2 text-base text-gray-600">
-                    <button>What you will learn</button>
-                  </li>
-                  <li className="text-nowrap p-2 text-base text-gray-600">
-                    <button>Course details</button>
-                  </li>
-                  <li className="text-nowrap p-2 text-base text-gray-600">
-                    <button>Exclusive Feature</button>
-                  </li>
-                  <li className="text-nowrap p-2 text-base text-gray-600">
-                    <button>Free items</button>
-                  </li>
-                  <li className="text-nowrap p-2 text-base text-gray-600">
-                    <button>Students opinion</button>
-                  </li>
-                  <li className="text-nowrap p-2 text-base text-gray-600">
-                    <button>FAQ</button>
-                  </li>
-                </ul>
-              </div>
-            </div>
+          <CourseStickyNavigation
+            sections={{
+              instructorSection,
+              featuresSection,
+              groupJoinSection,
+              pointersSection,
+              aboutSection,
+              exclusiveFeaturesSection,
+            }}
+          />
+
+          <div id="overview-section" className="py-4">
+            {/* Overview content can be added here if needed */}
           </div>
           {instructorSection && (
-            <InstructorsSection section={instructorSection} />
+            <div id="instructors-section">
+              <InstructorsSection section={instructorSection} />
+            </div>
           )}
           {featuresSection && (
-            <CourseFeaturesSection section={featuresSection} />
+            <div id="features-section">
+              <CourseFeaturesSection section={featuresSection} />
+            </div>
           )}
-          {groupJoinSection && <FreePDFSection section={groupJoinSection} />}
-          {pointersSection && <CoursePointers sections={[pointersSection]} />}
-          {aboutSection && <CourseDetailsSection sections={[aboutSection]} />}
+          {groupJoinSection && (
+            <div id="free-pdf-section">
+              <FreePDFSection section={groupJoinSection} />
+            </div>
+          )}
+          {pointersSection && (
+            <div id="pointers-section">
+              <CoursePointers sections={[pointersSection]} />
+            </div>
+          )}
+          {aboutSection && (
+            <div id="about-section">
+              <CourseDetailsSection sections={[aboutSection]} />
+            </div>
+          )}
           {exclusiveFeaturesSection && (
-            <ExclusiveFeaturesSection section={exclusiveFeaturesSection} />
+            <div id="exclusive-section">
+              <ExclusiveFeaturesSection section={exclusiveFeaturesSection} />
+            </div>
           )}
         </section>
 
@@ -155,9 +110,6 @@ export function CoursePageClient({ courseData }: CoursePageClientProps) {
           <StickyPricingCard course={courseData} />
         </div>
       </main>
-
-      {/* Related Courses */}
-      {/* <RelatedCoursesSection /> */}
     </div>
   );
 }
