@@ -5,9 +5,10 @@ import CourseHero from './course-hero';
 import CourseSidebar from './course-sidebar';
 import InstructorsSection from './course-instructors';
 import CourseFeaturesSection from './course-features';
-import FreePDFSection from './courese-fre-pdf';
+import FreePDFSection from './courese-free-pdf';
 import { CoursePointers } from './course-pointers';
 import { CourseDetailsSection } from './course-details';
+import ExclusiveFeaturesSection from './courese-exclusive-features-seciton';
 
 interface CoursePageClientProps {
   courseData: courseDataType;
@@ -20,7 +21,7 @@ export function CoursePageClient({ courseData }: CoursePageClientProps) {
   console.log('Sections:', courseData?.sections?.length);
   // Get all sections
   const sections = courseData.sections || [];
-  const offersSection = sections.find((s) => s.type === 'offers');
+
   const instructorSection = sections.find((s) => s.type === 'instructors');
   console.log('instructior', instructorSection);
   const featuresSection = sections.find((s) => s.type === 'features');
@@ -28,22 +29,11 @@ export function CoursePageClient({ courseData }: CoursePageClientProps) {
     (s) => s.type === 'group_join_engagement'
   );
   const pointersSection = sections.find((s) => s.type === 'pointers');
-  const contentPreviewSection = sections.find(
-    (s) => s.type === 'content_preview'
-  );
+
   const aboutSection = sections.find((s) => s.type === 'about');
   const exclusiveFeaturesSection = sections.find(
     (s) => s.type === 'feature_explanations'
   );
-  const freeItemsSection = sections.find((s) => s.type === 'free_items');
-  const certificateSection = sections.find((s) => s.type === 'certificate');
-  const bundleCertificateSection = sections.find(
-    (s) => s.type === 'bundle_certificate'
-  );
-  const testimonialsSection = sections.find((s) => s.type === 'testimonials');
-  const requirementsSection = sections.find((s) => s.type === 'requirements');
-  const paymentSection = sections.find((s) => s.type === 'how_to_pay');
-  const faqSection = sections.find((s) => s.type === 'faq');
 
   return (
     <div className="min-h-screen">
@@ -80,6 +70,9 @@ export function CoursePageClient({ courseData }: CoursePageClientProps) {
           {groupJoinSection && <FreePDFSection section={groupJoinSection} />}
           {pointersSection && <CoursePointers sections={[pointersSection]} />}
           {aboutSection && <CourseDetailsSection sections={[aboutSection]} />}
+          {exclusiveFeaturesSection && (
+            <ExclusiveFeaturesSection section={exclusiveFeaturesSection} />
+          )}
         </section>
       </main>
 
