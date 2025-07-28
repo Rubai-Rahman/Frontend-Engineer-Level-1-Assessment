@@ -20,7 +20,6 @@ A modern, responsive landing page for the IELTS Course by Munzereen Shahid, buil
 - ✅ **Incremental Static Regeneration (ISR)** - Optimal performance with fresh content
 - ✅ **SEO Optimization** - Dynamic meta tags from API data
 - ✅ **Localization** - English and Bengali language support
-- ✅ **Responsive Design** - Mobile-first approach
 - ✅ **API Integration** - Real-time data from 10 Minute School API
 - ✅ **Error Handling** - Comprehensive error boundaries and fallbacks
 - ✅ **Loading States** - Smooth user experience with loading indicators
