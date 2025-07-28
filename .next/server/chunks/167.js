@@ -1,0 +1,1 @@
+"use strict";exports.id=167,exports.ids=[167],exports.modules={72548:a=>{a.exports=JSON.parse('{"HomePage":{"title":"Hello bangla"}}')}};
