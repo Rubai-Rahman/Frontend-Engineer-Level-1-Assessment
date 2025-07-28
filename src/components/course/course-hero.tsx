@@ -1,6 +1,7 @@
 import { Play } from 'lucide-react';
 import YouTubePlayer from './youtube-player';
 import { courseDataType } from '@/types/course.type';
+import Image from 'next/image';
 
 interface CourseHeroProps {
   course: courseDataType;
@@ -70,9 +71,11 @@ export default function CourseHero({ course }: CourseHeroProps) {
         {course.title}
       </h1>
       <div className="mb-2 hidden md:block">
-        <button className="flex flex-row flex-wrap gap-2 text-white">
-          <img
-            className="md:w-[130px] w-[100px]"
+        <button className="flex flex-row flex-wrap gap-2 text-white hover:cursor-pointer">
+          <Image
+            className=""
+            width={130}
+            height={100}
             src="https://cdn.10minuteschool.com/images/Dev_Handoff_Q1_24_Frame_2_1725444418666.png"
             alt="Rating"
           />
