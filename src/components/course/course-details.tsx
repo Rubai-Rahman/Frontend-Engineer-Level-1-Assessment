@@ -6,6 +6,7 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion';
 import { Section } from '@/types/course.type';
+import { Info } from 'lucide-react';
 
 interface CourseDetailItem {
   id: string;
@@ -24,9 +25,10 @@ export function CourseDetailsSection({ sections }: CourseDetailsProps) {
   }
 
   return (
-    <Card className="mb-8">
+    <Card >
       <CardHeader>
-        <CardTitle className="flex items-center gap-2 text-foreground text-2xl font-semibold">
+        <CardTitle className="flex items-center gap-2 text-foreground text-xl font-semibold">
+          <Info className="h-5 w-5 text-primary" />
           {sections[0]?.name || 'Course details'}
         </CardTitle>
       </CardHeader>

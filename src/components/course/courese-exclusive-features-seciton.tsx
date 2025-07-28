@@ -24,10 +24,10 @@ export default function ExclusiveFeaturesSection({
   if (features.length === 0) return null;
 
   return (
-    <section id="feature_explanations" className="mb-8">
+    <section id="feature_explanations">
       <Card>
         <CardHeader>
-          <CardTitle className="flex items-center gap-2 text-foreground">
+          <CardTitle className="flex items-center gap-2 text-foreground text-xl">
             <Star className="h-5 w-5 text-primary" />
             {section.name}
           </CardTitle>

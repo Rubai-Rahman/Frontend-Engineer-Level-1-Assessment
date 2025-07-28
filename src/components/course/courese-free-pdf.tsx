@@ -30,7 +30,7 @@ export default function FreePDFSection({ section }: FreePDFSectionProps) {
   if (items.length === 0) return null;
 
   return (
-    <section className="py-8" id="free-pdf-section">
+    <section id="free-pdf-section">
       <div className="space-y-8">
         {items.map((item: FreePDFItem, index: number) => (
           <Card key={index} className="overflow-hidden border-0 shadow-lg">

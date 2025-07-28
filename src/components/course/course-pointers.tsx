@@ -19,9 +19,9 @@ export function CoursePointers({ sections }: CoursePointersProps) {
   }
 
   return (
-    <Card className="mb-8">
+    <Card>
       <CardHeader>
-        <CardTitle className="flex items-center gap-2 text-foreground">
+        <CardTitle className="flex items-center gap-2 text-foreground text-xl">
           <Target className="h-5 w-5 text-primary" />
           {sections[0]?.name || 'What you will learn by doing the course'}
         </CardTitle>

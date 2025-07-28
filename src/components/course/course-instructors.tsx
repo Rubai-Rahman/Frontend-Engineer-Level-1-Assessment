@@ -24,9 +24,9 @@ export default function InstructorsSection({
   const instructors = (section.values || []) as InstructorValue[];
 
   return (
-    <div id="instructors" className="mb-7 xs:bg-[#EEF2F4] xs:pt-2">
+    <div id="instructors" className=" xs:bg-[#EEF2F4] xs:pt-2">
       <div className="pt-4 pb-2 ">
-        <h2 className="mb-4 text-xl text- font-semibold md:text-2xl text-foreground">
+        <h2 className="mb-7 text-xl  font-semibold  text-foreground">
           {section.name}
         </h2>
         {instructors.map((instructor, index) => (

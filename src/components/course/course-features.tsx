@@ -22,12 +22,12 @@ export default function CourseFeaturesSection({
     <section id="features" className="w-full">
       <div className="flex flex-col gap-1">
         <CardHeader className="px-0">
-          <CardTitle className="text-xl font-semibold leading-relaxed text-foreground">
+          <CardTitle className="text-xl space-y-0 font-semibold leading-relaxed text-foreground">
             {section.name}
           </CardTitle>
         </CardHeader>
 
-        <Card className="mb-16 bg-card border">
+        <Card className="bg-card border">
           <CardContent className="p-6">
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">
               {features.map((feature: Feature, index: number) => (

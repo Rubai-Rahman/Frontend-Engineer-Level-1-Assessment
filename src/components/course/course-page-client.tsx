@@ -55,8 +55,8 @@ export function CoursePageClient({ courseData }: CoursePageClientProps) {
       </div>
 
       {/* Main Content below the hero/sidebar */}
-      <main className="container mx-auto grid grid-cols-9 ">
-        <section className=" md:col-span-6  px-6">
+      <main className="container mx-auto grid grid-cols-1 md:grid-cols-9 ">
+        <section className=" flex flex-col gap-y-6  md:col-span-6  px-6">
           {/* Sticky Navigation for desktop */}
           <CourseStickyNavigation
             sections={{
