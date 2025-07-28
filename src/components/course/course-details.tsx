@@ -5,7 +5,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
-import { Info } from 'lucide-react';
 import { Section } from '@/types/course.type';
 
 interface CourseDetailItem {

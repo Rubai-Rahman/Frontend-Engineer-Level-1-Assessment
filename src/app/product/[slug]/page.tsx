@@ -1,3 +1,4 @@
+// app/products/[slug]/page.tsx
 import { getLocale } from 'next-intl/server';
 import { getCachedCourseData } from '@/lib/services/course.service';
 import { courseKeys } from '@/hooks/use-course';
@@ -9,17 +10,15 @@ import {
   HydrationBoundary,
 } from '@tanstack/react-query';
 import ProductPage from './page.product';
-
-interface PageProps {
-  params: { slug: string };
-}
+import { Medium } from '@/types/course.type';
 
 export async function generateMetadata({
   params,
-}: PageProps): Promise<Metadata> {
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
   const locale = (await getLocale()) as Locale;
-  const { slug } = params;
-
+  const { slug } = await params;
   try {
     const courseData = await getCachedCourseData(slug, locale);
 
@@ -42,8 +41,9 @@ export async function generateMetadata({
         images: [
           {
             url:
-              courseData.media?.find((m) => m.type === 'og_image')?.url ||
-              '/default-og.jpg',
+              courseData.media?.find(
+                (m: Medium) => m.resource_type === 'og_image'
+              )?.resource_value ?? '/default-og.jpg',
             width: 1200,
             height: 630,
             alt: courseData.seo?.title || courseData.title,
@@ -55,12 +55,12 @@ export async function generateMetadata({
         title: courseData.seo?.title || courseData.title,
         description: courseData.seo?.description || courseData.description,
         images: [
-          courseData.media?.find((m) => m.type === 'og_image')?.url ||
-            '/default-og.jpg',
+          courseData.media?.find((m: Medium) => m.resource_type === 'og_image')
+            ?.resource_value ?? '/default-og.jpg',
         ],
       },
     };
-  } catch (error) {
+  } catch {
     return {
       title: 'Course Not Found',
       description: 'The requested course could not be found.',
@@ -68,26 +68,27 @@ export async function generateMetadata({
   }
 }
 
-export default async function Page({ params }: PageProps) {
-  const locale = (await getLocale()) as Locale;
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
   const { slug } = await params;
-
+  const locale = (await getLocale()) as Locale;
   const queryClient = new QueryClient();
 
-  // Prefetch data on server for hydration
   try {
     await queryClient.prefetchQuery({
       queryKey: courseKeys.bySlug(slug, locale),
       queryFn: () => getCachedCourseData(slug, locale),
     });
   } catch (error) {
-    // Optional: log error or handle gracefully
-    console.error('Prefetch failed', error);
+    console.error('Prefetch failed:', (error as Error).message);
   }
 
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
-      <ProductPage params={{ slug, locale }} />
+      <ProductPage slug={slug} />
     </HydrationBoundary>
   );
 }

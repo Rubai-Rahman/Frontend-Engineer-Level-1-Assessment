@@ -5,17 +5,14 @@ import { CoursePageClient } from '@/components/course/course-page-client';
 import { Locale } from '@/i18n/config';
 import ProductPageSkeleton from '@/components/skeletons/product-page-skeleton';
 import ApiError from '@/components/errors/api-error';
+import { useLocale } from 'next-intl';
 
 interface ProductPageProps {
-  params: {
-    slug: string;
-    locale: Locale;
-  };
+  slug: string;
 }
 
-export default function ProductPage({ params }: ProductPageProps) {
-  const { slug, locale } = params;
-
+export default function ProductPage({ slug }: ProductPageProps) {
+  const locale = useLocale() as Locale;
   const {
     data: courseData,
     isLoading,
@@ -25,18 +22,16 @@ export default function ProductPage({ params }: ProductPageProps) {
     isRefetching,
   } = useCourse(slug, locale);
 
-  // Loading state with skeleton
   if (isLoading) return <ProductPageSkeleton />;
 
-  // Error state with retry option
   if (isError || !courseData) {
     return (
       <ApiError
         error={error}
         onRetry={refetch}
         isRetrying={isRefetching}
-        showRetry={true}
-        showHomeButton={true}
+        showRetry
+        showHomeButton
       />
     );
   }
