@@ -2,6 +2,7 @@ import { Play } from 'lucide-react';
 import YouTubePlayer from './youtube-player';
 import { courseDataType } from '@/types/course.type';
 import Image from 'next/image';
+import VideoCarousel from './video-carousel';
 
 interface CourseHeroProps {
   course: courseDataType;
@@ -16,13 +17,7 @@ export default function CourseHero({ course }: CourseHeroProps) {
     <>
       {/* Mobile Video Carousel (hidden on md+) */}
       <div className="block mt-0 md:hidden">
-        {heroVideo && (
-          <YouTubePlayer
-            videoId={heroVideo.resource_value}
-            thumbnail={heroVideo.thumbnail_url}
-            title={course.title}
-          />
-        )}
+        {heroVideo && <VideoCarousel videos={course.media || []} />}
         {heroVideo && (
           <div className="flex gap-4 p-4 overflow-x-auto hideScrollbar">
             {course.media
@@ -54,17 +49,6 @@ export default function CourseHero({ course }: CourseHeroProps) {
           </div>
         )}
       </div>
-
-      {/* Mobile Course Title/Description (hidden on md+)
-      <div className="items-center block md:hidden">
-        <h1 className="text-white mb-3 mt-3 text-sm font-semibold md:text-4xl">
-          {course.title}
-        </h1>
-        <div
-          className="mb-4 text-sm font-normal"
-          dangerouslySetInnerHTML={{ __html: course.description || '' }}
-        />
-      </div> */}
 
       {/* Desktop Course Title/Description */}
       <h1 className="text-white mb-2 text-sm font-semibold md:text-4xl  md:block">
