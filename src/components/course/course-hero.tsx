@@ -1,5 +1,4 @@
 import { Play } from 'lucide-react';
-import YouTubePlayer from './youtube-player';
 import { courseDataType } from '@/types/course.type';
 import Image from 'next/image';
 import VideoCarousel from './video-carousel';
@@ -15,7 +14,6 @@ export default function CourseHero({ course }: CourseHeroProps) {
 
   return (
     <>
-      {/* Mobile Video Carousel (hidden on md+) */}
       <div className="block mt-0 md:hidden">
         {heroVideo && <VideoCarousel videos={course.media || []} />}
         {heroVideo && (
