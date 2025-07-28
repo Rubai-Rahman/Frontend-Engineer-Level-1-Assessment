@@ -34,7 +34,7 @@ export function CoursePageClient({ courseData }: CoursePageClientProps) {
   );
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen md:mb-12">
       <div
         id="skills-landing"
         className="bg-cover bg-center bg-no-repeat"
