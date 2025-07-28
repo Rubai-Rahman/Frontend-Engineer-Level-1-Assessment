@@ -4,6 +4,7 @@ import { courseDataType } from '@/types/course.type';
 import CourseHero from './course-hero';
 import CourseSidebar from './course-sidebar';
 import InstructorsSection from './course-instructors';
+import CourseFeaturesSection from './course-features';
 
 interface CoursePageClientProps {
   courseData: courseDataType;
@@ -70,6 +71,10 @@ export function CoursePageClient({ courseData }: CoursePageClientProps) {
           {instructorSection && (
             <InstructorsSection section={instructorSection} />
           )}
+          {featuresSection && (
+            <CourseFeaturesSection section={featuresSection} />
+          )}
+          {groupJoinSection && <FreePDFSection section={groupJoinSection} />}
         </section>
       </main>
 
