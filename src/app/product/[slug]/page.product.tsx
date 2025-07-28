@@ -37,7 +37,5 @@ export default function ProductPage({ slug, locale }: ProductPageProps) {
     );
   }
 
-  return (
-    <CoursePageClient courseData={courseData} slug={slug} locale={locale} />
-  );
+  return <CoursePageClient courseData={courseData} />;
 }

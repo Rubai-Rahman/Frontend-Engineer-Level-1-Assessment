@@ -1,12 +1,9 @@
 // 10 Minute School API Types
 export interface Medium {
-  id: number;
-  type: string;
-  url: string;
-  title?: string;
-  thumbnail?: string;
-  name?: string;
-  resource_type?: string;
+  name: string;
+  resource_type: string;
+  resource_value: string;
+  thumbnail_url: string;
 }
 
 export interface Checklist {
@@ -14,6 +11,7 @@ export interface Checklist {
   title: string;
   description?: string;
   icon?: string;
+  text: string;
 }
 
 export interface Seo {
