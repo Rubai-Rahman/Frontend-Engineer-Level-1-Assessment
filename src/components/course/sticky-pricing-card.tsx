@@ -33,7 +33,7 @@ export default function StickyPricingCard({ course }: StickyPricingCardProps) {
   if (!isVisible) return null;
 
   return (
-    <section className="w-full md:max-w-[330px] lg:max-w-[400px] bg-card sticky top-30">
+    <section className="w-full md:max-w-[330px] lg:max-w-[400px] 2xl:max-w-[475px] bg-card sticky top-30">
       <div className="sticky top-10 bg-card">
         <PricingCard course={course} />
       </div>
