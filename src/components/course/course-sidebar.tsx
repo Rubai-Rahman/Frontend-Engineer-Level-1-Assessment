@@ -10,20 +10,18 @@ interface CourseSidebarProps {
 
 export default function CourseSidebar({ course }: CourseSidebarProps) {
   return (
-    <section className="w-full md:max-w-[330px] lg:max-w-[400px] bg-card order-2 absolute ">
-      <div className="">
-        <div className="md:border">
-          {/* Desktop Video Carousel */}
-          <div className="hidden p-1 md:block" id="trailer_sticky">
-            <VideoCarousel videos={course.media || []} />
-          </div>
+    <section className="w-full md:max-w-[330px] lg:max-w-[400px] 2xl:max-w-[475px] bg-card order-2 absolute ">
+      <div className="md:border">
+        {/* Desktop Video Carousel */}
+        <div className="hidden p-1 md:block" id="trailer_sticky">
+          <VideoCarousel videos={course.media || []} />
+        </div>
 
-          {/* Pricing Card */}
-          <div className="sticky top-10">
-            <PricingCard course={course} />
+        {/* Pricing Card */}
+        <div className="sticky top-10">
+          <PricingCard course={course} />
 
-            {/* Course Checklist / What's included */}
-          </div>
+          {/* Course Checklist / What's included */}
         </div>
       </div>
       <p className="justify-between hidden mt-4 text-sm text-center text-gray-400 md:flex md:flex-col lg:flex lg:flex-row">

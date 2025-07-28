@@ -37,7 +37,7 @@ export function Header() {
 
   return (
     <header className="bg-background text-foreground shadow-sm border-b sticky top-0 z-50">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 ">
         <div className="flex items-center justify-between h-16">
           {/* Logo + Search */}
           <div className="flex items-center space-x-4">
