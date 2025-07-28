@@ -23,7 +23,6 @@ A modern, responsive landing page for the IELTS Course by Munzereen Shahid, buil
 - ✅ **API Integration** - Real-time data from 10 Minute School API
 - ✅ **Error Handling** - Comprehensive error boundaries and fallbacks
 - ✅ **Loading States** - Smooth user experience with loading indicators
-- ✅ **Docker Support** - Containerized deployment
 
 ## 📁 Project Structure
 
