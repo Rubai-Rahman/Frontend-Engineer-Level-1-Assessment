@@ -5,6 +5,7 @@ import CourseHero from './course-hero';
 import CourseSidebar from './course-sidebar';
 import InstructorsSection from './course-instructors';
 import CourseFeaturesSection from './course-features';
+import FreePDFSection from './courese-fre-pdf';
 
 interface CoursePageClientProps {
   courseData: courseDataType;
