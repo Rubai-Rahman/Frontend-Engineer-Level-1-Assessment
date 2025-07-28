@@ -37,7 +37,7 @@ export function CoursePointers({ sections }: CoursePointersProps) {
                     key={item.id || index}
                     className="flex items-start gap-3"
                   >
-                    <CheckCircle className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
+                    <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
                     <div>
                       <p className="text-gray-900">{item.text}</p>
                     </div>

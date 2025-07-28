@@ -32,7 +32,6 @@ export interface CtaText {
 }
 
 export interface Section {
-  id: number;
   type:
     | 'instructor'
     | 'instructors'
@@ -51,20 +50,33 @@ export interface Section {
     | 'group_join_engagement'
     | 'how_to_pay'
     | 'bundle_items';
-  title: string;
-  content: string;
+  name: string;
+  description: string;
+  bg_color: string;
+  order_idx: number;
+  values: unknown[];
+  // Legacy properties for backward compatibility
+  id?: number;
+  title?: string;
+  content?: string;
   data?: unknown;
   items?: unknown[];
 }
 
-export interface Instructor {
-  id: number;
+export interface InstructorType {
+  bg_color: string;
+  description: string;
   name: string;
-  title: string;
-  bio: string;
-  avatar: string;
-  experience?: string;
-  expertise?: string[];
+  order_idx: number;
+  type: string;
+  values: {
+    description: string;
+    name: string;
+    short_description: string;
+    image: string;
+    slug: string;
+    has_instructor_page: boolean;
+  }[];
 }
 
 export interface courseDataType {

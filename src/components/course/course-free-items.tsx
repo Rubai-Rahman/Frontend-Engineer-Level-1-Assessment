@@ -15,7 +15,7 @@ export function CourseFreeItems({ sections }: CourseFreeItemsProps) {
     <Card className="border-green-200 bg-green-50">
       <CardHeader>
         <CardTitle className="flex items-center gap-2 text-green-800">
-          <Gift className="h-5 w-5 text-green-600" />
+          <Gift className="h-5 w-5 text-primary" />
           {sections[0]?.name || 'Free Items with Course'}
         </CardTitle>
       </CardHeader>
@@ -55,7 +55,7 @@ export function CourseFreeItems({ sections }: CourseFreeItemsProps) {
                           </p>
                         )}
                         {item.value && (
-                          <p className="text-sm text-green-600 font-medium mt-1">
+                          <p className="text-sm text-primary font-medium mt-1">
                             Value: {item.value}
                           </p>
                         )}

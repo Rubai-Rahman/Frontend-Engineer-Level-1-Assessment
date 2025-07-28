@@ -48,7 +48,7 @@ export function CourseCTA({ ctaText, courseData }: CourseCTAProps) {
           <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
           <span className="ml-1 font-medium">(4.9/5 from 1000+ students)</span>
         </div>
-        <p className="text-sm text-green-600 font-medium">
+        <p className="text-sm text-primary font-medium">
           ✅ 30-Day Money Back Guarantee
         </p>
       </div>
@@ -93,7 +93,7 @@ export function CourseCTA({ ctaText, courseData }: CourseCTAProps) {
         <div className="space-y-3 text-sm">
           <div className="flex items-center gap-3 p-2 rounded-lg hover:bg-green-50 transition-colors">
             <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center">
-              <CheckSquare className="h-4 w-4 text-green-600" />
+              <CheckSquare className="h-4 w-4 text-primary" />
             </div>
             <span className="text-gray-700 font-medium">Lifetime Access</span>
           </div>
