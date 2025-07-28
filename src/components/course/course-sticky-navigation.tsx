@@ -148,7 +148,7 @@ export default function CourseStickyNavigation({
         {/* Left scroll button */}
         <button
           onClick={() => handleScroll('left')}
-          className={`absolute left-0 top-1/2 z-10 -translate-y-1/2 p-2 bg-foreground text-primary shadow-md rounded-full transition-opacity ${
+          className={`absolute left-0 top-1/2 z-10 -translate-y-1/2 p-2 bg-muted text-primary shadow-md rounded-full transition-opacity ${
             canScrollLeft
               ? 'opacity-100 cursor-pointer'
               : 'opacity-30 pointer-events-none'
@@ -161,7 +161,7 @@ export default function CourseStickyNavigation({
         {/* Right scroll button */}
         <button
           onClick={() => handleScroll('right')}
-          className={`absolute right-0 top-1/2 z-10 -translate-y-1/2 p-2 bg-foreground text-primary shadow-md rounded-full transition-opacity ${
+          className={`absolute right-0 top-1/2 z-10 -translate-y-1/2 p-2 bg-muted text-primary shadow-md rounded-full transition-opacity ${
             canScrollRight
               ? 'opacity-100 cursor-pointer'
               : 'opacity-30 pointer-events-none'
@@ -187,13 +187,13 @@ export default function CourseStickyNavigation({
                   }}
                   className={`text-nowrap px-4 py-2 text-base transition-colors relative ${
                     activeSection === item.id
-                      ? 'text-green-600 font-medium'
-                      : 'text-gray-600 hover:text-green-500'
+                      ? 'text-primary font-medium'
+                      : 'text-gray-600 hover:text-primary'
                   }`}
                 >
                   {item.label}
                   {activeSection === item.id && (
-                    <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-green-600 rounded-full" />
+                    <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary rounded-full" />
                   )}
                 </button>
               </li>
