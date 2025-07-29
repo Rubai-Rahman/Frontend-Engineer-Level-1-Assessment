@@ -9,7 +9,7 @@ import {
   dehydrate,
   HydrationBoundary,
 } from '@tanstack/react-query';
-import ProductPage from './page.product';
+import ProductPage from './page-product';
 import { Medium } from '@/types/course.type';
 
 export async function generateMetadata({
