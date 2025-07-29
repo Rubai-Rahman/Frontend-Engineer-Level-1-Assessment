@@ -1,7 +1,0 @@
-{
-  "/api/revalidate/route": "/api/revalidate",
-  "/favicon.ico/route": "/favicon.ico",
-  "/_not-found/page": "/_not-found",
-  "/page": "/",
-  "/product/[slug]/page": "/product/[slug]"
-}

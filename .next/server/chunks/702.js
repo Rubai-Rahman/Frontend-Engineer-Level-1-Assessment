@@ -1,1 +1,0 @@
-"use strict";exports.id=702,exports.ids=[702],exports.modules={55702:a=>{a.exports=JSON.parse('{"Header":{"searchPlaceholder":"কোর্স, দক্ষতা খুঁজুন...","login":"লগ ইন","nav":{"courses":"কোর্স","skills":"দক্ষতা","admission":"ভর্তি","jobPreparation":"চাকরির প্রস্তুতি","liveClass":"লাইভ ক্লাস"}}}')}};

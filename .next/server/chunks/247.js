@@ -1,1 +1,0 @@
-"use strict";exports.id=247,exports.ids=[247],exports.modules={76247:a=>{a.exports=JSON.parse('{"Header":{"searchPlaceholder":"Search courses, skills...","login":"Log In","nav":{"courses":"Courses","skills":"Skills","admission":"Admission","jobPreparation":"Job Preparation","liveClass":"Live Class"}}}')}};
