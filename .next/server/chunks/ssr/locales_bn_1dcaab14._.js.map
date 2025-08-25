@@ -1,6 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 14, "column": 0}, "map": {"version":3,"sources":["file:///D:/Job%20Task/Frontend-Engineer-Level-1-Assessment/locales/bn/index.ts"],"sourcesContent":["import HomePage from './home.json';\r\nimport Header from './header.json';\r\nimport Footer from './footer.json';\r\n\r\nconst pageData = {\r\n  ...HomePage,\r\n  ...Header,\r\n  ...Footer,\r\n};\r\n\r\nexport default pageData;\r\n"],"names":[],"mappings":";;;AAAA;AACA;AACA;;;;AAEA,MAAM,WAAW;IACf,GAAG,6FAAA,CAAA,UAAQ;IACX,GAAG,+FAAA,CAAA,UAAM;IACT,GAAG,+FAAA,CAAA,UAAM;AACX;uCAEe","debugId":null}}]
-}

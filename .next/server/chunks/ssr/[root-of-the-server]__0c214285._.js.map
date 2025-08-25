@@ -1,6 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 5, "column": 0}, "map": {"version":3,"sources":["file:///D:/Job%20Task/Frontend-Engineer-Level-1-Assessment/.next-internal/server/app/_not-found/page/actions.js%20%28server%20actions%20loader%29"],"sourcesContent":["export {getUserLocale as '001bfaa0becea8c7d12f8691e12e55336b26570627'} from 'ACTIONS_MODULE0'\nexport {setUserLocale as '403f0ef7381290a6755dc5267c77e65ff7292d81b6'} from 'ACTIONS_MODULE0'\n"],"names":[],"mappings":";AAAA","debugId":null}}]
-}

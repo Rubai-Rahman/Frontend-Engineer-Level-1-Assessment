@@ -1,7 +1,0 @@
-module.exports = {
-
-"[project]/locales/en/home.json (json)": ((__turbopack_context__) => {
-
-__turbopack_context__.v(JSON.parse("{\"HomePage\":{\"title\":\"Bangladesh's Largest Online Education Platform\",\"subtitle\":\"Over 17 million students are receiving quality education with us. Join today.\",\"searchPlaceholder\":\"Search courses...\",\"freeCourses\":\"View Free Courses\",\"watchDemo\":\"Watch Demo Video\",\"categories\":{\"title\":\"Our Course Categories\",\"subtitle\":\"Learn from expert teachers in various subjects and stay ahead\",\"viewAll\":\"View All Categories\"},\"courses\":{\"admission\":{\"title\":\"Admission Preparation\",\"subtitle\":\"Complete preparation for university admission exams\"},\"jobs\":{\"title\":\"Job Preparation\",\"subtitle\":\"Complete preparation for government and private jobs\"},\"language\":{\"title\":\"Language Learning\",\"subtitle\":\"Complete courses for learning English and Arabic\"},\"viewMore\":\"View More Courses\"},\"stats\":{\"title\":\"Our Success Story\",\"subtitle\":\"See our journey and students' trust in numbers\",\"students\":\"Students\",\"courses\":\"Courses\",\"teachers\":\"Expert Teachers\",\"rating\":\"Rating\",\"cta\":{\"title\":\"Join Us Today\",\"subtitle\":\"Learn with millions of students and build your career\",\"startNow\":\"Start Now\",\"learnMore\":\"Learn More\"}}}}"));}),
-
-};
